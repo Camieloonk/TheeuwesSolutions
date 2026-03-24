@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Theeuwes-Solutions-Favicoon.png">
+<title>Theeuwes Solutions – Custom Metal Fabrication</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green-900:#0a2016;
+  --green-800:#132d1e;
+  --green-700:#1b5e20;
+  --green-600:#2e7d32;
+  --green-500:#388e3c;
+  --green-400:#66bb6a;
+  --green-300:#a5d6a7;
+  --green-100:#e8f5e9;
+  --green-50:#f1f8f2;
+  --cream:#fafaf7;
+  --white:#ffffff;
+  --gray-900:#111;
+  --gray-600:#555;
+  --gray-400:#999;
+  --gray-200:#e5e5e5;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-in-out:cubic-bezier(0.87,0,0.13,1);
+}
+
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--font-body);
+  background:var(--cream);
+  color:var(--gray-900);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--green-400);border-radius:2px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+  transition:background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+}
+nav.scrolled{
+  background:rgba(250,250,247,0.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:0 1px 0 rgba(0,0,0,0.08);
+}
+.nav-logo{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  font-weight:600;
+  color:white;
+  text-decoration:none;
+  letter-spacing:0.02em;
+}
+.scrolled .nav-logo{
+  color:var(--green-800);
+}
+.nav-logo span{color:var(--green-500);}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:0.875rem;
+  font-weight:500;
+  color:var(--gray-600);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  transition:color 0.2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1.5px;background:var(--green-500);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.3s var(--ease-out);
+}
+.nav-links a:hover{color:var(--green-700)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{
+  background:var(--green-700);
+  color:var(--white)!important;
+  padding:0.55rem 1.4rem;
+  border-radius:100px;
+  font-size:0.875rem!important;
+  font-weight:500!important;
+  transition:background 0.2s, transform 0.2s!important;
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--green-600)!important;transform:translateY(-1px)!important}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 5vw 80px;
+  position:relative;overflow:hidden;
+  background:var(--green-900);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(56,142,60,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(27,94,32,0.25) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-grid-lines{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(165,214,167,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(165,214,167,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero-eyebrow{
+  font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--green-400);font-weight:500;
+  margin-bottom:1.5rem;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 0.8s var(--ease-out) 0.2s forwards;
+}
+.hero-title{
+  font-family:var(--font-display);
+  font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:300;
+  line-height:1.05;
+  color:var(--white);
+  margin-bottom:1.5rem;
+  opacity:0;transform:translateY(30px);
+  animation:fadeUp 1s var(--ease-out) 0.35s forwards;
+}
+.hero-title em{
+  font-style:italic;color:var(--green-400);font-weight:300;
+}
+.hero-sub{
+  font-size:clamp(1rem,1.8vw,1.2rem);
+  color:rgba(255,255,255,0.55);
+  max-width:500px;line-height:1.7;
+  margin-bottom:3rem;
+  font-weight:300;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 0.8s var(--ease-out) 0.55s forwards;
+}
+.hero-actions{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 0.8s var(--ease-out) 0.7s forwards;
+}
+.btn-primary{
+  background:var(--green-500);color:var(--white);
+  padding:0.9rem 2.2rem;border-radius:100px;
+  font-size:0.95rem;font-weight:500;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-primary:hover{background:var(--green-400);transform:translateY(-2px);box-shadow:0 8px 30px rgba(56,142,60,0.4)}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);
+  padding:0.9rem 2.2rem;border-radius:100px;
+  font-size:0.95rem;font-weight:400;
+  text-decoration:none;
+  transition:border-color 0.2s,color 0.2s,transform 0.2s;
+  display:inline-flex;align-items:center;gap:0.5rem;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:var(--white);transform:translateY(-2px)}
+.hero-scroll-hint{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  opacity:0;animation:fadeIn 1s ease 1.2s forwards;
+}
+.scroll-line{
+  width:1px;height:50px;background:linear-gradient(to bottom,rgba(165,214,167,0.6),transparent);
+  animation:scrollLine 2s ease-in-out 1.5s infinite;
+}
+.scroll-text{font-size:0.65rem;letter-spacing:0.2em;color:var(--green-400);text-transform:uppercase}
+
+/* ── SECTIONS GENERAL ── */
+section{padding:100px 5vw}
+
+.section-label{
+  font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--green-600);font-weight:600;margin-bottom:1rem;
+  display:flex;align-items:center;gap:0.75rem;
+}
+.section-label::before{
+  content:'';width:30px;height:1px;background:var(--green-500);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem,5vw,4rem);
+  font-weight:400;line-height:1.1;
+  margin-bottom:1.5rem;
+  color:var(--green-900);
+}
+.section-title em{font-style:italic;color:var(--green-600)}
+
+/* ── ABOUT ── */
+#about{background:var(--white)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;
+  align-items:center;
+}
+.about-text p{
+  font-size:1.05rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.2rem;font-weight:300;
+}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;
+}
+.stat{border-left:2px solid var(--green-400);padding-left:1.2rem}
+.stat-num{
+  font-family:var(--font-display);font-size:3rem;font-weight:300;
+  color:var(--green-700);line-height:1;
+}
+.stat-label{font-size:0.8rem;color:var(--gray-400);letter-spacing:0.05em;margin-top:0.3rem}
+.about-visual{
+  position:relative;
+}
+.cert-card{
+  background:var(--cream);
+  border:1px solid var(--gray-200);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  transition:transform 0.4s var(--ease-out),box-shadow 0.4s;
+}
+.cert-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 40px 80px rgba(0,0,0,0.12)}
+.cert-card img{width:100px;height:auto;display:block}
+.cert-badge{
+  background:var(--green-700);color:var(--white);
+  padding:0.75rem 1.5rem;
+  font-size:0.8rem;font-weight:500;letter-spacing:0.05em;
+  text-align:center;
+}
+
+/* ── PRODUCTS ── */
+#products{background:var(--green-50)}
+.products-intro{max-width:600px;margin-bottom:4rem}
+.products-intro p{font-size:1.05rem;color:var(--gray-600);line-height:1.8;font-weight:300}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;
+}
+.product-card{
+  background:var(--white);
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid var(--gray-200);
+  transition:transform 0.5s var(--ease-out),box-shadow 0.5s var(--ease-out);
+  cursor:default;
+}
+.product-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 40px 80px rgba(27,94,32,0.12);
+  border-color:var(--green-300);
+}
+.product-img-wrap{
+  height:260px;
+  background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.product-img-wrap img{
+  max-width:85%;max-height:85%;object-fit:contain;
+  transition:transform 0.6s var(--ease-out);
+}
+.product-card:hover .product-img-wrap img{transform:scale(1.07) translateY(-4px)}
+.product-tag{
+  position:absolute;top:1rem;left:1rem;
+  background:var(--green-100);color:var(--green-700);
+  padding:0.3rem 0.8rem;border-radius:100px;
+  font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+}
+.product-info{padding:1.75rem}
+.product-name{
+  font-family:var(--font-display);font-size:1.6rem;font-weight:600;
+  color:var(--green-900);margin-bottom:0.5rem;
+}
+.product-desc{font-size:0.9rem;color:var(--gray-600);line-height:1.7;font-weight:300;margin-bottom:1.2rem}
+.product-specs{
+  display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.5rem;
+}
+.spec-line{
+  display:flex;justify-content:space-between;
+  font-size:0.8rem;padding:0.4rem 0;
+  border-bottom:1px solid var(--gray-200);
+}
+.spec-key{color:var(--gray-400);font-weight:400}
+.spec-val{color:var(--gray-900);font-weight:500}
+.product-cta{
+  font-size:0.85rem;color:var(--green-600);font-weight:500;
+  text-decoration:none;display:flex;align-items:center;gap:0.4rem;
+  transition:gap 0.2s;cursor:pointer;background:none;border:none;
+}
+.product-cta:hover{gap:0.8rem;color:var(--green-700)}
+
+/* ── CERTIFICATE HIGHLIGHT ── */
+#certificate{
+  background:var(--green-900);color:var(--white);
+  padding:80px 5vw;
+  position:relative;overflow:hidden;
+}
+#certificate::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(56,142,60,0.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.cert-section-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
+}
+.cert-text .section-label{color:var(--green-400)}
+.cert-text .section-label::before{background:var(--green-400)}
+.cert-title{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:300;line-height:1.1;
+  margin-bottom:1.5rem;color:var(--white);
+}
+.cert-title em{color:var(--green-400);font-style:italic}
+.cert-body{
+  font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.8;font-weight:300;margin-bottom:2rem;
+}
+.cert-pills{display:flex;flex-wrap:wrap;gap:0.75rem;}
+.pill{
+  border:1px solid rgba(165,214,167,0.3);
+  color:var(--green-300);
+  padding:0.4rem 1rem;border-radius:100px;
+  font-size:0.8rem;font-weight:400;
+}
+.cert-img-side{display:flex;justify-content:center}
+.cert-img-side img{
+  max-width:100%;border-radius:16px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+  transition:transform 0.5s var(--ease-out);
+}
+.cert-img-side img:hover{transform:scale(1.02) rotate(0.5deg)}
+
+/* ── LOGO ── */
+.logo{
+  display:block;margin:0 auto;text-align: center;
+}
+.logo-header{
+  display:flex;align-items:left;gap:1rem;
+  justify-content:left;margin-right:60rem;
+}
+
+/* ── QUOTE FORM ── */
+#offerte{background:var(--white)}
+.form-layout{
+  display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start;
+}
+.form-intro p{
+  font-size:1rem;color:var(--gray-600);line-height:1.8;font-weight:300;margin-bottom:2rem;
+}
+.contact-details{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem}
+.contact-item{
+  display:flex;align-items:center;gap:1rem;
+  font-size:0.95rem;color:var(--gray-600);
+}
+.contact-icon{
+  width:40px;height:40px;
+  background:var(--green-100);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.contact-item a{color:var(--green-700);text-decoration:none}
+.contact-item a:hover{text-decoration:underline}
+
+form{display:flex;flex-direction:column;gap:1.2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.field{display:flex;flex-direction:column;gap:0.4rem}
+label{font-size:0.8rem;font-weight:500;color:var(--gray-600);letter-spacing:0.04em;text-transform:uppercase}
+input,textarea,select{
+  padding:0.9rem 1.1rem;
+  border:1.5px solid var(--gray-200);
+  border-radius:12px;
+  font-family:var(--font-body);
+  font-size:0.95rem;
+  color:var(--gray-900);
+  background:var(--cream);
+  transition:border-color 0.2s,box-shadow 0.2s;
+  resize:vertical;
+}
+input:focus,textarea:focus,select:focus{
+  outline:none;
+  border-color:var(--green-500);
+  box-shadow:0 0 0 3px rgba(56,142,60,0.12);
+  background:var(--white);
+}
+textarea{min-height:130px}
+.submit-btn{
+  background:var(--green-700);color:var(--white);
+  padding:1rem 2rem;border-radius:100px;
+  font-family:var(--font-body);font-size:1rem;font-weight:500;
+  border:none;cursor:pointer;
+  transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
+  align-self:flex-start;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.submit-btn:hover{background:var(--green-600);transform:translateY(-2px);box-shadow:0 8px 30px rgba(27,94,32,0.3)}
+.form-success{
+  display:none;text-align:center;padding:3rem;
+  background:var(--green-50);border-radius:20px;
+  border:1px solid var(--green-200);
+}
+.form-success h3{font-family:var(--font-display);font-size:2rem;color:var(--green-700);margin-bottom:0.5rem}
+.form-success p{color:var(--gray-600)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--green-900);color:rgba(255,255,255,0.6);
+  padding:4rem 5vw 2.5rem;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:2rem;
+  padding-bottom:2.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  margin-bottom:2rem;
+}
+.footer-brand .nav-logo{color:var(--white);font-size:1.6rem}
+.footer-brand p{font-size:0.85rem;margin-top:0.5rem;line-height:1.6}
+.footer-links h4{
+  font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-bottom:1rem;
+}
+.footer-links ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.footer-links a:hover{color:var(--green-400)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem}
+.kvk{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes scrollLine{
+  0%,100%{transform:scaleY(1);transform-origin:top}
+  50%{transform:scaleY(0.3);transform-origin:bottom}
+}
+
+.reveal{
+  opacity:0;transform:translateY(40px);
+  transition:opacity 0.9s var(--ease-out),transform 0.9s var(--ease-out);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .about-grid,.cert-section-inner,.form-layout{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr}
+  nav ul{display:none}
+  .hero-title{font-size:3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 40px; height: auto; margin-right: 10px;">
+  <div class="logo-header">
+  <a href="#" class="nav-logo">Theeuwes <span>Solutions</span></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Over ons</a></li>
+    <li><a href="#products">Producten</a></li>
+    <li><a href="#certificate">Certificering</a></li>
+    <li><a href="#offerte" class="nav-cta">Offerte aanvragen</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Theeuwes Solutions · Amersfoort</p>
+    <h1 class="hero-title">Ontwerp dat<br><em>precies past</em><br>bij jouw idee</h1>
+    <p class="hero-sub">Maatwerk metaalconstructies voor meubels en industriële toepassingen. Van technische tekening tot afgewerkt product.</p>
+    <div class="hero-actions">
+      <a href="#offerte" class="btn-primary">Offerte aanvragen →</a>
+      <a href="#products" class="btn-ghost">Bekijk producten</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="section-label">Over mij</p>
+      <h2 class="section-title">Vakmanschap in <em>SOLIDWORKS</em></h2>
+      <p>Theeuwes Solutions is gespecialiseerd in het ontwerpen en produceren van stalen constructies op maat. Wij werken van eerste schets tot eindproduct en zetten klantwensen om in solide, esthetisch verzorgde staalconstructies.</p>
+      <p>Elk project begint met een helder gesprek over jouw wensen. Vervolgens maken wij technische tekeningen in SOLIDWORKS, waarna we het product vakkundig fabriceren en afwerken.</p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-num">Drawing</div>
+          <div class="stat-label">SOLIDWORKS tekeningen</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3D</div>
+          <div class="stat-label">SOLIDWORKS ontwerp</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">CSWA</div>
+          <div class="stat-label">Gecertificeerd ontwerper</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">NL</div>
+          <div class="stat-label">Gevestigd in Nederland</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+	<img class="logo" src="Theeuwes-Solutions-Logo.png" style="width: 400px; align-items: center;"></img>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-intro reveal">
+    <p class="section-label">Producten</p>
+    <h2 class="section-title">Ontworpen met <em>precisie</em></h2>
+    <p>Hieronder een selectie van eerder gerealiseerde projecten. Alle producten zijn volledig aanpasbaar in afmeting, uitvoering en kleur.</p>
+  </div>
+  <div class="products-grid">
+    <!-- Product 1 -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-img-wrap">
+        <div class="product-tag">Tafelpoot</div>
+img
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Spider Tafelpoot</h3>
+        <p class="product-desc">Stijlvolle stertafelpoot van gecoat staal. Geschikt als basis voor grote eettafels of vergadertafels. Opvallend design met industriële uitstraling.</p>
+        <div class="product-specs">
+          <div class="spec-line"><span class="spec-key">Materiaal</span><span class="spec-val">Stalen koker</span></div>
+          <div class="spec-line"><span class="spec-key">Afwerking</span><span class="spec-val">Poedercoat (kleur op aanvraag)</span></div>
+          <div class="spec-line"><span class="spec-key">Maatwerk</span><span class="spec-val">Ja</span></div>
+        </div>
+        <button class="product-cta" onclick="document.getElementById('offerte').scrollIntoView({behavior:'smooth'})">Offerte aanvragen →</button>
+      </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-img-wrap">
+        <div class="product-tag">Constructie</div>
+img
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Steunframe</h3>
+        <p class="product-desc">Robuust stalen steunframe voor meubels of industrieel gebruik. Gebaseerd op technische tekening, volledig op maat gelast en nabewerkt.</p>
+        <div class="product-specs">
+          <div class="spec-line"><span class="spec-key">Breedte</span><span class="spec-val">1200 mm (aanpasbaar)</span></div>
+          <div class="spec-line"><span class="spec-key">Hoogte</span><span class="spec-val">757 mm (aanpasbaar)</span></div>
+          <div class="spec-line"><span class="spec-key">Koker</span><span class="spec-val">80 × 80 mm</span></div>
+        </div>
+        <button class="product-cta" onclick="document.getElementById('offerte').scrollIntoView({behavior:'smooth'})">Offerte aanvragen →</button>
+      </div>
+    </div>
+    <!-- Product 3 -->
+    <div class="product-card reveal reveal-delay-3">
+      <div class="product-img-wrap">
+        <div class="product-tag">Bevestiging</div>
+img
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Montage­steunplaat</h3>
+        <p class="product-desc">Lasergesne­den en gekantelde montageplaat voor professionele bevestiging. Passend voor Chiorino systemen en vergelijkbare toepassingen.</p>
+        <div class="product-specs">
+          <div class="spec-line"><span class="spec-key">Afmeting</span><span class="spec-val">310 × 280 mm</span></div>
+          <div class="spec-line"><span class="spec-key">Plaatdikte</span><span class="spec-val">5,6 mm</span></div>
+          <div class="spec-line"><span class="spec-key">Gaten</span><span class="spec-val">Ø 9 mm</span></div>
+        </div>
+        <button class="product-cta" onclick="document.getElementById('offerte').scrollIntoView({behavior:'smooth'})">Offerte aanvragen →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATE HIGHLIGHT -->
+<section id="certificate">
+  <div class="cert-section-inner">
+    <div class="cert-text reveal">
+      <p class="section-label">Certificering</p>
+      <h2 class="cert-title">Officieel gecertificeerd<br>door <em>Dassault Systèmes</em></h2>
+      <p class="cert-body">Camiel Theeuwes heeft het CSWA-certificaat (Certified SOLIDWORKS Associate in Design) behaald via een academisch examen aan ROC Midden Nederland. Dit garandeert dat elk ontwerp wordt gemaakt met professionele 3D-software en technische precisie.</p>
+      <div class="cert-pills">
+        <span class="pill">SOLIDWORKS Design Associate</span>
+        <span class="pill">CSWA · C-G5C7U9A3HJ</span>
+        <span class="pill">Dassault Systèmes</span>
+        <span class="pill">ROC Midden Nederland</span>
+        <span class="pill">Januari 2026</span>
+      </div>
+    </div>
+    <div class="cert-img-side reveal reveal-delay-2">
+<img src="CSWA CERTIFICAAT.png"</img>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section id="offerte">
+  <div class="form-layout">
+    <div class="form-intro reveal">
+      <p class="section-label">Offerte aanvragen</p>
+      <h2 class="section-title">Heb je een <em>idee?</em></h2>
+      <p>Beschrijf jouw project of product en wij nemen contact op om de mogelijkheden te bespreken. Of het nu gaat om een standaard product of volledig maatwerk – wij denken met je mee.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><a href="tel:0630505293">06 30505293</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div><a href="mailto:Camiel@Theeuwes-Solutions.com">Camiel@Theeuwes-Solutions.com</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>Amersfoort, Nederland</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>Ma–Vr · 8:00 – 18:00</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <form id="offerteForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="naam">Naam</label>
+            <input type="text" id="naam" name="naam" placeholder="Jan de Vries" required>
+          </div>
+          <div class="field">
+            <label for="bedrijf">Bedrijf (optioneel)</label>
+            <input type="text" id="bedrijf" name="bedrijf" placeholder="Jouw bedrijfsnaam">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">E-mailadres</label>
+            <input type="email" id="email" name="email" placeholder="jouw@email.nl" required>
+          </div>
+          <div class="field">
+            <label for="telefoon">Telefoonnummer</label>
+            <input type="tel" id="telefoon" name="telefoon" placeholder="06 12345678">
+          </div>
+        </div>
+        <div class="field">
+          <label for="product">Welk product interesseert je?</label>
+          <select id="product" name="product">
+            <option value="">— Selecteer een optie —</option>
+            <option>Spider Tafelpoot</option>
+            <option>Steunframe</option>
+            <option>Montageplaat</option>
+            <option>Ander / volledig maatwerk</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="omschrijving">Omschrijving van jouw project</label>
+          <textarea id="omschrijving" name="omschrijving" placeholder="Vertel ons over jouw idee, gewenste afmetingen, materialen, aantallen of andere bijzonderheden…" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <span>Offerte versturen</span>
+          <span>→</span>
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <h3>Bericht ontvangen! 🎉</h3>
+        <p>Bedankt voor je aanvraag. Camiel neemt zo snel mogelijk contact met je op.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">Theeuwes <span style="color:var(--green-400)">Solutions</span></a>
+      <p>Maatwerk staalconstructies voor<br>meubels en industriële toepassingen.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#about">Over ons</a></li>
+        <li><a href="#products">Producten</a></li>
+        <li><a href="#certificate">Certificering</a></li>
+        <li><a href="#offerte">Offerte aanvragen</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0630505293">06 30505293</a></li>
+        <li><a href="mailto:Camiel@Theeuwes-Solutions.com">Camiel@Theeuwes-Solutions.com</a></li>
+        <li><a href="#">Amersfoort, Nederland</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Theeuwes Solutions · Camiel Theeuwes</p>
+    <p class="kvk">SOLIDWORKS CSWA Gecertificeerd · C-G5C7U9A3HJ</p>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Form submit
+document.getElementById('offerteForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('offerteForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+});
+
+// Smooth nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>

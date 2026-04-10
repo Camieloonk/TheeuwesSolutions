@@ -13,36 +13,66 @@ function reveal() {
 window.addEventListener('scroll', reveal);
 reveal();
 
-// Hamburger menu
+// HAMBURGER MENU - Werkt op alle telefoons
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-    const icon = menuToggle.querySelector('i');
-    if (icon) {
-      if (navLinks.classList.contains('show')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
+
+if (menuToggle && navLinks) {
+  // Open/sluiten bij klikken op hamburger icoon
+  menuToggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Toggle de 'show' klasse
+    if (navLinks.classList.contains('show')) {
+      navLinks.classList.remove('show');
+      menuToggle.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
+      }
+    } else {
+      navLinks.classList.add('show');
+      menuToggle.classList.add('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    }
+  });
+  
+  // Sluit menu wanneer op een link wordt geklikt
+  const navLinkItems = document.querySelectorAll('.nav-links a');
+  navLinkItems.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('show');
+      menuToggle.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+  });
+  
+  // OPTIONEEL: Sluit menu wanneer er buiten geklikt wordt (verbeterde gebruikservaring)
+  document.addEventListener('click', function(e) {
+    if (navLinks.classList.contains('show')) {
+      // Check of de klik buiten het menu en buiten de toggle knop is
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('show');
+        menuToggle.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
       }
     }
   });
 }
-
-// Sluit menu bij klikken op link
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('show');
-    const icon = menuToggle?.querySelector('i');
-    if (icon) {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-    }
-  });
-});
 
 // Form submit met AJAX (voorkomt page refresh en toont success)
 const form = document.getElementById('offerteForm');

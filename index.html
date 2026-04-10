@@ -42,18 +42,14 @@ body{
   line-height:1.6;
 }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--green-400);border-radius:2px}
-
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:0 5vw;
+  padding:0 4vw;
   display:flex;align-items:center;justify-content:space-between;
   height:68px;
   transition:background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+  flex-wrap:wrap;
 }
 nav.scrolled{
   background:rgba(250,250,247,0.88);
@@ -77,11 +73,14 @@ nav.scrolled{
 .nav-links a{
   font-size:0.875rem;
   font-weight:500;
-  color:var(--gray-600);
+  color:white;
   text-decoration:none;
   letter-spacing:0.02em;
   transition:color 0.2s;
   position:relative;
+}
+.scrolled .nav-links a {
+  color:#132d1e;
 }
 .nav-links a::after{
   content:'';position:absolute;bottom:-4px;left:0;right:0;
@@ -470,6 +469,11 @@ footer{
   nav ul{display:none}
   .hero-title{font-size:3rem}
 }
+
+.flagship{
+  position:absolute;right:100px;
+  width:800px;height:auto;
+}
 </style>
 </head>
 <body>
@@ -494,7 +498,7 @@ footer{
   <div class="hero-grid-lines"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Theeuwes Solutions · Amersfoort</p>
-    <h1 class="hero-title">Ontwerp dat<br><em>precies past</em><br>bij jouw idee</h1>
+    <h1 class="hero-title">Ontwerp dat<br><em>Exact past</em><br>Bij jouw idee</h1>
     <p class="hero-sub">Maatwerk metaalconstructies voor industriële toepassingen. Van technische tekening tot afgewerkt product.</p>
     <div class="hero-actions">
       <a href="#offerte" class="btn-primary">Offerte aanvragen →</a>
@@ -505,6 +509,7 @@ footer{
     <span class="scroll-text">Scroll</span>
     <div class="scroll-line"></div>
   </div>
+  <img src="Flagship.png" alt="Flagship" class="flagship">
 </section>
 
 <!-- ABOUT -->
@@ -512,12 +517,14 @@ footer{
   <div class="about-grid">
     <div class="about-text reveal">
       <p class="section-label">Over mij</p>
-      <h2 class="section-title">Vakmanschap in <em>SOLIDWORKS</em></h2>
-      <p>Theeuwes Solutions is gespecialiseerd in het ontwerpen en produceren van stalen constructies op maat. Ik werk van eerste schets tot eindproduct en zet klantwensen om in solide, esthetisch verzorgde staalconstructies.</p>
+      <h2 class="section-title">Vakmanschap in <em>Technisch Design
+      </em></h2>
+      <p>Theeuwes Solutions is gespecialiseerd in het ontwerpen en produceren van stalen constructies op maat. Ik werk van eerste schets tot eindproduct en zet klantwensen om in solide.</p>
       <p>Elk project begint met een helder gesprek over jouw wensen. Vervolgens maak ik technische tekeningen in SOLIDWORKS, waarna ik het product vakkundig fabriceer en afwerk.</p>
       <div class="about-stats">
         <div class="stat">
-          <div class="stat-num">Drawing</div>
+          <div class="stat-num">SOLIDWORKS
+          </div>
           <div class="stat-label">SOLIDWORKS tekeningen</div>
         </div>
         <div class="stat">
@@ -583,7 +590,7 @@ footer{
     <!-- Product 3 -->
     <div class="product-card reveal reveal-delay-3">
       <div class="product-img-wrap">
-        <div class="product-tag">Bevestiging</div>
+        <div class="product-tag">SOLIDWORKS</div>
 <img src="SPLITTER.PNG">
       </div>
       <div class="product-info">
@@ -626,7 +633,7 @@ footer{
     <div class="form-intro reveal">
       <p class="section-label">Offerte aanvragen</p>
       <h2 class="section-title">Heb je een <em>idee?</em></h2>
-      <p>Beschrijf jouw project of product en wij nemen contact op om de mogelijkheden te bespreken. Of het nu gaat om een standaard product of volledig maatwerk – wij denken met je mee.</p>
+      <p>Beschrijf jouw project of product en ik nemen contact op om de mogelijkheden te bespreken. Of het nu gaat om een standaard product of volledig maatwerk. Ik denk met je mee.</p>
       <div class="contact-details">
         <div class="contact-item">
           <div class="contact-icon">
@@ -657,7 +664,7 @@ footer{
       </div>
     </div>
     <div class="reveal reveal-delay-2">
-      <form id="offerteForm">
+      <form id="offerteForm" action="https://formspree.io/f/mdaprvzq" method="POST">
         <div class="form-row">
           <div class="field">
             <label for="naam">Naam</label>
@@ -698,7 +705,7 @@ footer{
         </button>
       </form>
       <div class="form-success" id="formSuccess">
-        <h3>Bericht ontvangen! 🎉</h3>
+        <h3>Bericht ontvangen <fast-icon class="fa-regular fa-paper-plane"></fast-icon></h3>
         <p>Bedankt voor je aanvraag. Camiel neemt zo snel mogelijk contact met je op.</p>
       </div>
     </div>
@@ -731,40 +738,10 @@ footer{
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Theeuwes Solutions · Camiel Theeuwes</p>
+    <p>© 2026 Theeuwes Solutions · Camiel Theeuwes</p>
     <p class="kvk">SOLIDWORKS CSWA Gecertificeerd · C-G5C7U9A3HJ</p>
   </div>
 </footer>
-
-<script>
-// Nav scroll
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 30);
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting) { e.target.classList.add('visible'); }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Form submit
-document.getElementById('offerteForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  document.getElementById('offerteForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-});
-
-// Smooth nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
-  });
-});
-</script>
+<script src="script.js"></script>
 </body>
 </html>

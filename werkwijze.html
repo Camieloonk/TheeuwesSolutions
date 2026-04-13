@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="Theeuwes-Solutions-Favicoon.png">
+    <title>Werkwijze: Van Idee tot Realisatie | Theeuwes Solutions</title>
+    <meta name="description" content="Het transparante proces van Theeuwes Solutions: van intake en 3D-ontwerp tot feedback en oplevering van technische tekeningen en CAD-modellen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--green-900:#0a2016;--green-800:#132d1e;--green-700:#1b5e20;--green-600:#2e7d32;--green-500:#388e3c;--green-400:#66bb6a;--green-300:#a5d6a7;--green-100:#e8f5e9;--green-50:#f1f8f2;--cream:#fafaf7;--white:#ffffff;--gray-900:#111;--gray-600:#555;--gray-400:#999;--gray-200:#e5e5e5;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;}
+        body{font-family:var(--font-body);background:var(--cream);color:var(--gray-900);line-height:1.6;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;min-height:68px;background:rgba(250,250,247,0.88);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,0.08);}
+        .nav-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--green-800);text-decoration:none;letter-spacing:0.02em;}
+        .nav-logo span{color:var(--green-500);}
+        .nav-links{display:flex;gap:2rem;list-style:none;}
+        .nav-links a{font-size:0.875rem;font-weight:500;color:var(--green-800);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a:hover{color:var(--green-700);}
+        .nav-cta{background:var(--green-700);color:var(--white)!important;padding:0.55rem 1.2rem;border-radius:100px;font-weight:500;transition:background 0.2s;}
+        .nav-cta:hover{background:var(--green-600)!important;}
+        main{padding:120px 5vw 60px;max-width:1000px;margin:0 auto;}
+        @media (min-width: 768px){main{padding:140px 5vw 80px;}.nav-logo{font-size:1.5rem;}}
+        h1{font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-weight:400;color:var(--green-900);margin-bottom:1rem;}
+        h1 em{font-style:italic;color:var(--green-600);}
+        .section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-600);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;}
+        .section-label::before{content:'';width:25px;height:1px;background:var(--green-500);}
+        .timeline{position:relative;margin:4rem 0;padding-left:2rem;}
+        .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green-300);}
+        .step{margin-bottom:3rem;position:relative;}
+        .step-icon{position:absolute;left:-2.35rem;top:0;width:2.5rem;height:2.5rem;background:var(--white);border:2px solid var(--green-500);border-radius:100%;display:flex;align-items:center;justify-content:center;color:var(--green-700);font-weight:bold;z-index:2;}
+        .step-content{background:var(--white);padding:2rem;border-radius:20px;border:1px solid var(--gray-200);margin-left:1rem;box-shadow:0 5px 20px rgba(0,0,0,0.02);}
+        .step-content h3{font-family:var(--font-display);font-size:1.6rem;color:var(--green-800);margin-bottom:0.5rem;}
+        .step-content h3 span{font-size:1rem;color:var(--green-500);margin-left:0.5rem;}
+        .step-content p{color:var(--gray-600);margin-bottom:1rem;}
+        .step-detail{display:flex;gap:1rem;margin-top:1rem;font-size:0.9rem;border-top:1px solid var(--gray-200);padding-top:1.5rem;}
+        .step-detail i{color:var(--green-500);width:20px;}
+        .cta-section{background:var(--green-50);padding:3rem;border-radius:30px;text-align:center;margin:4rem 0;}
+        .btn-primary{background:var(--green-700);color:var(--white);padding:0.9rem 2rem;border-radius:100px;text-decoration:none;font-weight:500;display:inline-block;transition:all 0.2s;}
+        .btn-primary:hover{background:var(--green-600);transform:translateY(-2px);}
+        footer{background:var(--green-900);color:rgba(255,255,255,0.6);padding:3rem 5vw 2rem;margin-top:4rem;}
+        .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+        .footer-bottom{display:flex;justify-content:space-between;padding-top:2rem;font-size:0.8rem;}
+        @media (max-width: 768px){.nav-links{display:none;}.footer-inner{flex-direction:column;gap:2rem;text-align:center;}.timeline{padding-left:1rem;}}
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 35px; height: auto;">
+        <a href="index.html" class="nav-logo">Theeuwes <span>Solutions</span></a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="sectoren.html">Sectoren</a></li>
+        <li><a href="over-mij.html">Over mij</a></li>
+        <li><a href="software-tools.html">Tools</a></li>
+        <li><a href="werkwijze.html">Werkwijze</a></li>
+        <li><a href="projecten.html">Projecten</a></li>
+        <li><a href="offerte-aanvragen.html" class="nav-cta">Offerte</a></li>
+    </ul>
+</nav>
+
+<main>
+    <p class="section-label">Proces</p>
+    <h1>Van Idee tot <em>Realisatie</em></h1>
+    <p style="max-width:700px; color:var(--gray-600); margin-bottom:2rem;">Transparantie en betrokkenheid staan centraal in mijn aanpak. In vier heldere stappen werk ik van uw eerste idee naar een concreet en productierijp ontwerp. Zo weet u precies waar u aan toe bent.</p>
+
+    <div class="timeline">
+        <div class="step">
+            <div class="step-icon">1</div>
+            <div class="step-content">
+                <h3>Concept & Intake <span>🗣️</span></h3>
+                <p>Alles begint met een goed gesprek. Of het nu digitaal, telefonisch of op locatie is, we bespreken uw wensen, de functionaliteit, het budget en de planning. Ik luister, stel gerichte vragen en denk alvast mee over de technische haalbaarheid.</p>
+                <div class="step-detail">
+                    <div><i class="fas fa-check"></i> Wat levert het u op? Een heldere terugkoppeling van de mogelijkheden en een concrete offerte of plan van aanpak.</div>
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-icon">2</div>
+            <div class="step-content">
+                <h3>3D-Ontwerp & Engineering <span>⚙️</span></h3>
+                <p>Na akkoord ga ik aan de slag in SOLIDWORKS. Ik bouw een gedetailleerd 3D-model dat niet alleen de vorm maar ook de technische werking weergeeft. Hierbij let ik op materiaalkeuze, maakbaarheid (DFM) en sterkte. U ontvangt tussentijds renderings of screenshots om de voortgang te tonen.</p>
+                <div class="step-detail">
+                    <div><i class="fas fa-check"></i> Wat levert het u op? Een eerste visueel en technisch inzicht in het eindproduct, voordat er iets geproduceerd is.</div>
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-icon">3</div>
+            <div class="step-content">
+                <h3>Feedback & Optimalisatie <span>🔄</span></h3>
+                <p>Dit is het moment waarop uw input cruciaal is. U bekijkt het ontwerp op uw gemak en geeft aan wat er eventueel nog aangepast moet worden. Op basis van uw feedback verfijn ik het model. Deze iteratieslag zorgt ervoor dat het ontwerp exact past bij uw verwachtingen en wensen.</p>
+                <div class="step-detail">
+                    <div><i class="fas fa-check"></i> Wat levert het u op? De garantie dat het uiteindelijke ontwerp perfect aansluit op uw eisen, zonder verrassingen achteraf.</div>
+                </div>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-icon">4</div>
+            <div class="step-content">
+                <h3>Oplevering <span>📦</span></h3>
+                <p>Zodra u het definitieve ontwerp heeft goedgekeurd, rond ik het project af. U ontvangt het complete pakket aan bestanden, klaar voor de volgende stap (offerteaanvraag bij producent, 3D-print, CNC-verspaning, etc.). Dit omvat het 3D-model (bijv. .STEP of .SLDPRT), technische 2D-tekeningen (PDF) en eventueel een samenstellingstekening.</p>
+                <div class="step-detail">
+                    <div><i class="fas fa-check"></i> Wat levert het u op? Een tastbaar eindproduct in de vorm van digitale bestanden waarmee u direct verder kunt. En uiteraard blijf ik beschikbaar voor vragen.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2 style="margin-bottom:0.5rem;">Klaar om stap 1 te zetten?</h2>
+        <p style="color:var(--gray-600); margin-bottom:2rem;">Neem vrijblijvend contact op voor een intakegesprek over uw project.</p>
+        <a href="offerte-aanvragen.html" class="btn-primary">Plan een intake →</a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div><a href="index.html" class="nav-logo" style="color:white;">Theeuwes <span style="color:var(--green-400)">Solutions</span></a></div>
+        <div>© 2026 Theeuwes Solutions · Camiel Theeuwes</div>
+    </div>
+    <div class="footer-bottom">
+        <p>SOLIDWORKS CSWA Gecertificeerd · Amersfoort</p>
+        <a href="mailto:Camiel@Theeuwes-Solutions.com" style="color:var(--green-400); text-decoration:none;">Camiel@Theeuwes-Solutions.com</a>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="Theeuwes-Solutions-Favicoon.png">
+    <title>Software & Tools: Onze Technologische Fundamenten | Theeuwes Solutions</title>
+    <meta name="description" content="Theeuwes Solutions werkt met SOLIDWORKS (CSWA gecertificeerd), CNC-programmering en professionele tools voor optimaal technisch ontwerp en engineering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--green-900:#0a2016;--green-800:#132d1e;--green-700:#1b5e20;--green-600:#2e7d32;--green-500:#388e3c;--green-400:#66bb6a;--green-300:#a5d6a7;--green-100:#e8f5e9;--green-50:#f1f8f2;--cream:#fafaf7;--white:#ffffff;--gray-900:#111;--gray-600:#555;--gray-400:#999;--gray-200:#e5e5e5;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;}
+        body{font-family:var(--font-body);background:var(--cream);color:var(--gray-900);line-height:1.6;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;min-height:68px;background:rgba(250,250,247,0.88);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,0.08);}
+        .nav-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--green-800);text-decoration:none;letter-spacing:0.02em;}
+        .nav-logo span{color:var(--green-500);}
+        .nav-links{display:flex;gap:2rem;list-style:none;}
+        .nav-links a{font-size:0.875rem;font-weight:500;color:var(--green-800);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a:hover{color:var(--green-700);}
+        .nav-cta{background:var(--green-700);color:var(--white)!important;padding:0.55rem 1.2rem;border-radius:100px;font-weight:500;transition:background 0.2s;}
+        .nav-cta:hover{background:var(--green-600)!important;}
+        main{padding:120px 5vw 60px;max-width:1100px;margin:0 auto;}
+        @media (min-width: 768px){main{padding:140px 5vw 80px;}.nav-logo{font-size:1.5rem;}}
+        h1{font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-weight:400;color:var(--green-900);margin-bottom:1rem;}
+        h1 em{font-style:italic;color:var(--green-600);}
+        .section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-600);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;}
+        .section-label::before{content:'';width:25px;height:1px;background:var(--green-500);}
+        .tool-showcase{display:grid;grid-template-columns:1fr;gap:2rem;margin:3rem 0;}
+        .tool-card{background:var(--white);border-radius:30px;padding:2rem;border:1px solid var(--gray-200);display:flex;flex-direction:column;align-items:flex-start;}
+        .tool-badge{background:var(--green-100);color:var(--green-700);padding:0.2rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;margin-bottom:1rem;align-self:flex-start;}
+        .tool-card h3{font-family:var(--font-display);font-size:2rem;color:var(--green-900);margin-bottom:1rem;}
+        .tool-card p{color:var(--gray-600);margin-bottom:1.5rem;}
+        .tool-value{font-weight:500;color:var(--green-700);border-top:1px solid var(--gray-200);padding-top:1.5rem;margin-top:auto;width:100%;}
+        .tool-value i{margin-right:0.5rem;}
+        .cert-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin:1rem 0;}
+        .pill{background:var(--green-900);color:var(--green-300);padding:0.3rem 0.8rem;border-radius:100px;font-size:0.7rem;}
+        .cta-section{background:var(--green-900);color:white;padding:3rem;border-radius:30px;text-align:center;margin:4rem 0;}
+        .btn-primary{background:var(--green-500);color:var(--white);padding:0.9rem 2rem;border-radius:100px;text-decoration:none;font-weight:500;display:inline-block;transition:all 0.2s;}
+        .btn-primary:hover{background:var(--green-400);transform:translateY(-2px);}
+        footer{background:var(--green-900);color:rgba(255,255,255,0.6);padding:3rem 5vw 2rem;margin-top:4rem;}
+        .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+        .footer-bottom{display:flex;justify-content:space-between;padding-top:2rem;font-size:0.8rem;}
+        @media (max-width: 768px){.nav-links{display:none;}.footer-inner{flex-direction:column;gap:2rem;text-align:center;}}
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 35px; height: auto;">
+        <a href="index.html" class="nav-logo">Theeuwes <span>Solutions</span></a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="sectoren.html">Sectoren</a></li>
+        <li><a href="over-mij.html">Over mij</a></li>
+        <li><a href="software-tools.html">Tools</a></li>
+        <li><a href="werkwijze.html">Werkwijze</a></li>
+        <li><a href="projecten.html">Projecten</a></li>
+        <li><a href="offerte-aanvragen.html" class="nav-cta">Offerte</a></li>
+    </ul>
+</nav>
+
+<main>
+    <p class="section-label">Toolbox</p>
+    <h1>Onze <em>Technologische Fundamenten</em></h1>
+    <p style="max-width:700px; color:var(--gray-600); margin-bottom:2rem;">Voor een perfect eindresultaat is de juiste gereedschapskist essentieel. Ik werk met toonaangevende software en technieken die garant staan voor precisie, compatibiliteit en innovatie.</p>
+
+    <div class="tool-showcase">
+        <div class="tool-card">
+            <span class="tool-badge">Kernsoftware · CSWA Gecertificeerd</span>
+            <h3>SOLIDWORKS</h3>
+            <p>Als Certified SOLIDWORKS Associate (CSWA) beheers ik de industriestandaard voor 3D CAD-ontwerp tot in de finesses. Van complexe assemblies tot geavanceerde plaatwerkonderdelen en fotorealistische renderings.</p>
+            <div class="cert-pills">
+                <span class="pill">CSWA · C-G5C7U9A3HJ</span>
+                <span class="pill">Parametrisch modelleren</span>
+                <span class="pill">2D Tekeningen</span>
+            </div>
+            <div class="tool-value"><i class="fas fa-check-circle" style="color:var(--green-500);"></i> Waarde voor u: Gegarandeerde bestandscompatibiliteit met uw leveranciers en productiepartners. Foutloze modellen die direct de productie in kunnen.</div>
+        </div>
+
+        <div class="tool-card">
+            <span class="tool-badge">Productie & Precisie</span>
+            <h3>CNC-Programmering</h3>
+            <p>Mijn ervaring bij STYLE CNC Machines komt hier tot zijn recht. Ik begrijp de taal van CNC-machines en kan ontwerpen optimaliseren voor efficiënte bewerking. Het resultaat: een naadloze overgang van digitaal model naar fysiek onderdeel.</p>
+            <div class="tool-value"><i class="fas fa-check-circle" style="color:var(--green-500);"></i> Waarde voor u: Lagere productiekosten door een ontwerp dat rekening houdt met verspaningstijden en gereedschapswissels.</div>
+        </div>
+
+        <div class="tool-card">
+            <span class="tool-badge">Communicatie & Organisatie</span>
+            <h3>Microsoft Office Suite</h3>
+            <p>Professionele communicatie en projectmanagement zijn de sleutel tot een soepel verlopend traject. Ik gebruik de Office-suite voor heldere calculaties (Excel), offertes (Word) en efficiënte e-mailcorrespondentie.</p>
+            <div class="tool-value"><i class="fas fa-check-circle" style="color:var(--green-500);"></i> Waarde voor u: Heldere documentatie, overzichtelijke offertes en een gestructureerde aanpak van uw project.</div>
+        </div>
+
+        <div class="tool-card" style="background:var(--green-50);">
+            <span class="tool-badge">Flexibiliteit · Op Aanvraag</span>
+            <h3>Overige CAD/CAM Software</h3>
+            <p>Heeft uw bedrijf specifieke softwarewensen? Door mijn technische achtergrond en leergierige instelling kan ik mij snel verdiepen in andere pakketten zoals Fusion 360, Inventor of branchespecifieke tools. Neem contact op voor de mogelijkheden.</p>
+            <div class="tool-value"><i class="fas fa-check-circle" style="color:var(--green-500);"></i> Waarde voor u: Geen gedoe met bestandsconversies; ik lever aan in het formaat dat uw workflow ondersteunt.</div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2 style="color:white; margin-bottom:0.5rem;">Klaar voor een technische samenwerking?</h2>
+        <p style="color:rgba(255,255,255,0.7); margin-bottom:2rem;">Bespreek de softwarebehoeften van uw project vrijblijvend met Camiel.</p>
+        <a href="offerte-aanvragen.html" class="btn-primary">Neem contact op →</a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div><a href="index.html" class="nav-logo" style="color:white;">Theeuwes <span style="color:var(--green-400)">Solutions</span></a></div>
+        <div>© 2026 Theeuwes Solutions · Camiel Theeuwes</div>
+    </div>
+    <div class="footer-bottom">
+        <p>SOLIDWORKS CSWA Gecertificeerd · Amersfoort</p>
+        <a href="mailto:Camiel@Theeuwes-Solutions.com" style="color:var(--green-400); text-decoration:none;">Camiel@Theeuwes-Solutions.com</a>
+    </div>
+</footer>
+</body>
+</html>

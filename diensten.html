@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link rel="icon" type="image/png" href="Theeuwes-Solutions-Favicoon.png">
+    <title>Diensten: Precisie in Ontwerp en Engineering | Theeuwes Solutions</title>
+    <meta name="description" content="Ontdek de technische diensten van Theeuwes Solutions: 3D-modellering, machinebouw, productontwikkeling en meer. CSWA gecertificeerd SOLIDWORKS engineer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{--green-900:#0a2016;--green-800:#132d1e;--green-700:#1b5e20;--green-600:#2e7d32;--green-500:#388e3c;--green-400:#66bb6a;--green-300:#a5d6a7;--green-100:#e8f5e9;--green-50:#f1f8f2;--cream:#fafaf7;--white:#ffffff;--gray-900:#111;--gray-600:#555;--gray-400:#999;--gray-200:#e5e5e5;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;}
+        body{font-family:var(--font-body);background:var(--cream);color:var(--gray-900);line-height:1.6;}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;min-height:68px;background:rgba(250,250,247,0.88);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,0.08);}
+        .nav-logo{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:var(--green-800);text-decoration:none;letter-spacing:0.02em;}
+        .nav-logo span{color:var(--green-500);}
+        .nav-links{display:flex;gap:2rem;list-style:none;}
+        .nav-links a{font-size:0.875rem;font-weight:500;color:var(--green-800);text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+        .nav-links a:hover{color:var(--green-700);}
+        .nav-cta{background:var(--green-700);color:var(--white)!important;padding:0.55rem 1.2rem;border-radius:100px;font-weight:500;transition:background 0.2s;}
+        .nav-cta:hover{background:var(--green-600)!important;}
+        main{padding:120px 5vw 60px;max-width:1200px;margin:0 auto;}
+        @media (min-width: 768px){main{padding:140px 5vw 80px;}.nav-logo{font-size:1.5rem;}}
+        h1{font-family:var(--font-display);font-size:clamp(2rem,6vw,4rem);font-weight:400;color:var(--green-900);margin-bottom:1rem;}
+        h1 em{font-style:italic;color:var(--green-600);}
+        .section-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-600);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem;}
+        .section-label::before{content:'';width:25px;height:1px;background:var(--green-500);}
+        h2{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.8rem);font-weight:400;color:var(--green-800);margin-bottom:1.5rem;}
+        .service-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin:3rem 0;}
+        @media (min-width: 768px){.service-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem;}}
+        .service-card{background:var(--white);padding:2rem;border-radius:20px;border:1px solid var(--gray-200);transition:transform 0.3s;box-shadow:0 10px 30px rgba(0,0,0,0.02);}
+        .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(27,94,32,0.08);}
+        .service-icon{font-size:2rem;color:var(--green-500);margin-bottom:1.5rem;}
+        .service-card h3{font-family:var(--font-display);font-size:1.6rem;font-weight:600;color:var(--green-900);margin-bottom:1rem;}
+        .service-card p{color:var(--gray-600);margin-bottom:1rem;font-size:0.95rem;}
+        .service-features{list-style:none;margin:1.5rem 0;}
+        .service-features li{margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;color:var(--gray-600);}
+        .service-features i{color:var(--green-500);font-size:0.8rem;width:16px;}
+        .cta-section{background:var(--green-50);padding:3rem;border-radius:30px;text-align:center;margin:4rem 0;}
+        .btn-primary{background:var(--green-700);color:var(--white);padding:0.9rem 2rem;border-radius:100px;text-decoration:none;font-weight:500;display:inline-block;transition:all 0.2s;}
+        .btn-primary:hover{background:var(--green-600);transform:translateY(-2px);}
+        footer{background:var(--green-900);color:rgba(255,255,255,0.6);padding:3rem 5vw 2rem;margin-top:4rem;}
+        .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+        .footer-bottom{display:flex;justify-content:space-between;padding-top:2rem;font-size:0.8rem;}
+        @media (max-width: 768px){.nav-links{display:none;}.footer-inner{flex-direction:column;gap:2rem;text-align:center;}}
+    </style>
+</head>
+<body>
+
+<nav id="nav">
+    <div style="display:flex; align-items:center; gap:10px;">
+        <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 35px; height: auto;">
+        <a href="index.html" class="nav-logo">Theeuwes <span>Solutions</span></a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="diensten.html">Diensten</a></li>
+        <li><a href="sectoren.html">Sectoren</a></li>
+        <li><a href="over-mij.html">Over mij</a></li>
+        <li><a href="software-tools.html">Tools</a></li>
+        <li><a href="werkwijze.html">Werkwijze</a></li>
+        <li><a href="projecten.html">Projecten</a></li>
+        <li><a href="offerte-aanvragen.html" class="nav-cta">Offerte</a></li>
+    </ul>
+</nav>
+
+<main>
+    <p class="section-label">Onze Expertise</p>
+    <h1>Precisie in <em>Ontwerp & Engineering</em></h1>
+    <p style="max-width:700px; color:var(--gray-600); margin-bottom:2rem;">Als freelance engineer en CSWA-gecertificeerd SOLIDWORKS specialist bied ik technische ontwerpoplossingen die perfect aansluiten op de behoeften van het MKB en de industrie. Ontdek hieronder de diensten waarmee ik uw project naar een hoger niveau til.</p>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cube"></i></div>
+            <h3>3D-Modellering & CAD Ontwerp</h3>
+            <p>De basis van elk succesvol project is een gedetailleerd en accuraat 3D-model. Met SOLIDWORKS creëer ik parametrische modellen die voldoen aan de hoogste industrienormen. Dit resulteert in foutloze technische tekeningen en een perfecte basis voor productie.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Precieze 3D-modellen (parts & assemblies)</li>
+                <li><i class="fas fa-check-circle"></i> Technische 2D-tekeningen volgens NEN-normen</li>
+                <li><i class="fas fa-check-circle"></i> Exploded views & renderings voor presentatie</li>
+                <li><i class="fas fa-check-circle"></i> CSWA-gecertificeerde werkwijze (SOLIDWORKS)</li>
+            </ul>
+            <p><strong>Uw voordeel:</strong> Minder fouten in de productiefase en een kortere time-to-market.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-cogs"></i></div>
+            <h3>Machinebouw & Mechanisch Ontwerp</h3>
+            <p>Dankzij praktijkervaring bij Yourtech BV en STYLE CNC Machines beschik ik over diepgaande kennis van machineontwerp. Of het nu gaat om een enkel mechanisch component of een complete machine, ik ontwerp robuuste en efficiënte systemen.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Ontwerp van frames, assen en precisie-onderdelen</li>
+                <li><i class="fas fa-check-circle"></i> Integratie van CNC-bewerkingskennis in ontwerp</li>
+                <li><i class="fas fa-check-circle"></i> Optimalisatie voor maakbaarheid en assemblage</li>
+                <li><i class="fas fa-check-circle"></i> Bewegingsstudies en krachtanalyse</li>
+            </ul>
+            <p><strong>Uw voordeel:</strong> Een doordacht ontwerp dat direct klaar is voor de werkplaats.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon"><i class="fas fa-flask"></i></div>
+            <h3>Productontwikkeling & Prototyping</h3>
+            <p>Van een ruw idee op een servet tot een productierijp ontwerp. Ik begeleid u door de haalbaarheidsfase, maak eerste concepten in 3D en bereid het ontwerp voor op prototyping. Mijn leergierige en probleemoplossende houding zorgt voor creatieve technische oplossingen.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Conceptontwikkeling & haalbaarheidsstudie</li>
+                <li><i class="fas fa-check-circle"></i> Iteratief ontwerpen op basis van feedback</li>
+                <li><i class="fas fa-check-circle"></i> Voorbereiding bestanden voor 3D-printen of CNC</li>
+                <li><i class="fas fa-check-circle"></i> Begeleiding richting eerste prototype</li>
+            </ul>
+            <p><strong>Uw voordeel:</strong> Bespaar kosten door ontwerpfouten vroegtijdig te signaleren.</p>
+        </div>
+
+        <div class="service-card" style="border-color:var(--green-200); background:var(--green-50);">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h3>Webdesign & App Ontwikkeling <span style="font-size:0.8rem; background:var(--green-100); padding:0.2rem 0.5rem; border-radius:100px; margin-left:10px;">Optioneel</span></h3>
+            <p>Als aanvulling op de technische diensten bied ik, vanuit mijn eigen onderneming en passie voor programmeren, ondersteuning op digitaal vlak. Speciaal voor technische bedrijven die hun online presentatie of interne tools willen verbeteren.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Ontwikkeling van iOS-apps (Swift)</li>
+                <li><i class="fas fa-check-circle"></i> Moderne, snelle websites voor MKB</li>
+                <li><i class="fas fa-check-circle"></i> Webapplicaties voor calculatie of configuratie</li>
+            </ul>
+            <p><strong>Uw voordeel:</strong> Een unieke combinatie van techniek en software, alleen op aanvraag.</p>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2 style="margin-bottom:0.5rem;">Klaar om uw project te starten?</h2>
+        <p style="color:var(--gray-600); margin-bottom:2rem;">Vraag een vrijblijvende offerte aan of neem contact op voor een adviesgesprek.</p>
+        <a href="offerte-aanvragen.html" class="btn-primary">Vrijblijvende offerte aanvragen →</a>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div><a href="index.html" class="nav-logo" style="color:white;">Theeuwes <span style="color:var(--green-400)">Solutions</span></a></div>
+        <div>© 2026 Theeuwes Solutions · Camiel Theeuwes</div>
+    </div>
+    <div class="footer-bottom">
+        <p>SOLIDWORKS CSWA Gecertificeerd · Amersfoort</p>
+        <a href="mailto:Camiel@Theeuwes-Solutions.com" style="color:var(--green-400); text-decoration:none;">Camiel@Theeuwes-Solutions.com</a>
+    </div>
+</footer>
+</body>
+</html>

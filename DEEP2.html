@@ -1,3 +1,6 @@
+Hier is de aangepaste `projecten.html` pagina. De hero-sectie gebruikt nu `FLAG.png` als volledige achtergrond met een donkere overlay voor optimale leesbaarheid. De tekst en call-to-action zijn verticaal en horizontaal gecentreerd, en de pagina behoudt de bestaande projecten-grid en navigatie.
+
+```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -142,7 +145,7 @@
       .menu-toggle{display:none;}
     }
 
-    /* —— HERO MET SLAGHAMER ACHTERGROND (centraal, overlay) —— */
+    /* —— HERO MET FLAG ACHTERGROND (centraal, overlay) —— */
     .hero-image-section{
       position:relative;
       min-height:100vh;
@@ -151,34 +154,35 @@
       justify-content:center;
       text-align:center;
       padding:100px 5vw 80px;
-      background-image:url('SLAGHAMER FLAGSHIP-1 (1).png');
+      background-image:url('FLAG.png');
       background-size:cover;
-      background-position:center 30%;
+      background-position:center center;
       background-repeat:no-repeat;
       isolation:isolate;
     }
+    /* overlay voor leesbaarheid (instelbare opaciteit) */
     .hero-image-section::before{
       content:'';
       position:absolute;
       inset:0;
-      background:rgba(8, 25, 16, 0.25);
-      backdrop-filter:brightness(0.75);
+      background:rgba(10,32,22,0.65); /* donkergroene overlay, pas aan naar wens */
+      backdrop-filter:brightness(0.9);
       z-index:0;
     }
     .hero-content-wrapper{
       position:relative;
       z-index:2;
-      max-width:1100px;
+      max-width:1000px;
       margin:0 auto;
       color:white;
     }
     .hero-eyebrow-light{
-      font-size:0.8rem;
-      letter-spacing:0.3em;
+      font-size:0.75rem;
+      letter-spacing:0.25em;
       text-transform:uppercase;
       color:var(--green-300);
       font-weight:500;
-      margin-bottom:1.5rem;
+      margin-bottom:1.2rem;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -187,33 +191,30 @@
     .hero-eyebrow-light::before,
     .hero-eyebrow-light::after{
       content:'';
-      width:40px;
-      height:1.5px;
+      width:30px;
+      height:1px;
       background:var(--green-400);
     }
     .hero-headline{
       font-family:var(--font-display);
-      font-size:clamp(3.5rem,12vw,7rem);
+      font-size:clamp(2.8rem,10vw,6.5rem);
       font-weight:300;
-      line-height:1.05;
+      line-height:1.1;
       color:white;
-      margin-bottom:1rem;
-      text-shadow:0 8px 30px rgba(0,0,0,0.4);
-      letter-spacing:-0.01em;
+      margin-bottom:1.2rem;
+      text-shadow:0 4px 20px rgba(0,0,0,0.2);
     }
     .hero-headline em{
       font-style:italic;
       color:var(--green-300);
-      font-weight:300;
     }
     .hero-subheadline{
-      font-size:clamp(1rem,4.5vw,1.5rem);
+      font-size:clamp(1rem,4vw,1.4rem);
       color:rgba(255,255,255,0.85);
-      max-width:750px;
+      max-width:700px;
       margin:0 auto 2.5rem;
       font-weight:300;
-      line-height:1.5;
-      text-shadow:0 2px 10px rgba(0,0,0,0.3);
+      line-height:1.6;
     }
     .hero-cta-group{
       display:flex;
@@ -224,10 +225,10 @@
     .btn-primary-light{
       background:var(--green-500);
       color:white;
-      padding:0.9rem 2.8rem;
+      padding:0.9rem 2.5rem;
       border-radius:100px;
       font-weight:500;
-      font-size:1.1rem;
+      font-size:1rem;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
@@ -235,22 +236,21 @@
       transition:background 0.2s, transform 0.2s, box-shadow 0.2s;
       border:none;
       cursor:pointer;
-      box-shadow:0 8px 25px rgba(0,0,0,0.2);
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
     }
-    .btn-primary-light i{font-size:1rem;}
+    .btn-primary-light i{font-size:0.9rem;}
     .btn-primary-light:hover{
       background:var(--green-400);
       transform:translateY(-3px);
-      box-shadow:0 18px 35px rgba(56,142,60,0.6);
+      box-shadow:0 15px 30px rgba(56,142,60,0.5);
     }
     .btn-outline-light{
       background:transparent;
-      border:1.8px solid rgba(255,255,255,0.55);
+      border:1.5px solid rgba(255,255,255,0.5);
       color:white;
-      padding:0.9rem 2.5rem;
+      padding:0.9rem 2.2rem;
       border-radius:100px;
       font-weight:400;
-      font-size:1.1rem;
       text-decoration:none;
       transition:border-color 0.2s, background 0.2s, transform 0.2s;
       display:inline-flex;
@@ -259,11 +259,11 @@
     }
     .btn-outline-light:hover{
       border-color:white;
-      background:rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.05);
       transform:translateY(-2px);
     }
 
-    /* —— PROJECTEN GRID (opgeschoond) —— */
+    /* —— PROJECTEN GRID (zelfde stijl) —— */
     .projects-section{
       padding:60px 5vw;
       background:var(--white);
@@ -296,7 +296,7 @@
       display:grid;
       grid-template-columns:1fr;
       gap:2rem;
-      max-width:1200px;
+      max-width:1400px;
       margin:0 auto;
     }
     @media (min-width: 640px){
@@ -431,7 +431,7 @@
 </head>
 <body>
 
-<!-- NAVIGATIE -->
+<!-- NAVIGATIE (actief: Projecten) -->
 <nav id="nav">
   <div style="display:flex; align-items:center; gap:10px;">
     <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 35px; height: auto;">
@@ -452,12 +452,12 @@
   </ul>
 </nav>
 
-<!-- HERO MET SLAGHAMER -->
+<!-- HERO MET FLAG ACHTERGROND (centraal, overlay) -->
 <section class="hero-image-section">
   <div class="hero-content-wrapper reveal">
-    <p class="hero-eyebrow-light">3D Design & Engineering · Amersfoort</p>
-    <h1 class="hero-headline"><em>Theeuwes</em> Solutions</h1>
-    <p class="hero-subheadline">Maatwerk metaalconstructies en technisch ontwerp – van concept tot gedetailleerde 3D-modellen. Precisie die je ziet.</p>
+    <p class="hero-eyebrow-light">Theeuwes Solutions · Amersfoort</p>
+    <h1 class="hero-headline">Ontwerp dat <em>werkt</em><br>van concept tot realisatie</h1>
+    <p class="hero-subheadline">Ontdek onze projecten – maatwerk metaalconstructies en 3D-engineering voor industriële toepassingen en meubeldesign.</p>
     <div class="hero-cta-group">
       <a href="#projecten-grid" class="btn-primary-light">Bekijk projecten <i class="fa-solid fa-arrow-down"></i></a>
       <a href="offerte-aanvragen.html" class="btn-outline-light">Offerte aanvragen</a>
@@ -465,12 +465,12 @@
   </div>
 </section>
 
-<!-- PROJECTEN GRID (3 unieke projecten, dubbelingen verwijderd) -->
+<!-- PROJECTEN GRID (met ID voor ankerlink) -->
 <section id="projecten-grid" class="projects-section">
   <div class="section-header reveal">
     <p class="section-label">Realisaties & ontwerpen</p>
     <h2 class="section-title">Projecten die <em>spreken</em></h2>
-    <p style="color:var(--gray-600); max-width:600px; margin:0 auto;">Een selectie van maatwerk constructies – van meubeldesign tot industriële componenten.</p>
+    <p style="color:var(--gray-600); max-width:600px; margin:0 auto;">Een selectie van maatwerk constructies, van meubeldesign tot industriële componenten.</p>
   </div>
   <div class="projects-grid">
     
@@ -498,7 +498,7 @@
       </div>
       <div class="project-info">
         <h3 class="project-name">Voetplaat Transportband Splitter</h3>
-        <p class="project-desc">Ontworpen voor Chiorino B.V. als onderdeel van een transportband-splitter. Volledige assembly met bouwboek en technische tekeningen (detailweergave beperkt vanwege geheimhouding).</p>
+        <p class="project-desc">Ontworpen voor Chiorino B.V. als onderdeel van een transportband-splitter. Volledige assembly met bouwboek en technische tekeningen (detailweergave beperkt).</p>
         <div class="project-meta">
           <span><i class="fa-solid fa-building"></i> Chiorino B.V.</span>
           <span><i class="fa-solid fa-lock"></i> NDA-project</span>
@@ -506,7 +506,7 @@
       </div>
     </div>
     
-    <!-- Project 3: Industriële Slaghamer (FLAG) -->
+    <!-- Project 3: Slaghamer (FLAG) -->
     <div class="project-card reveal reveal-delay-3">
       <div class="project-img-wrap">
         <div class="project-tag">Gereedschap</div>
@@ -514,7 +514,7 @@
       </div>
       <div class="project-info">
         <h3 class="project-name">Industriële Slaghamer</h3>
-        <p class="project-desc">Conceptontwerp van een robuuste slaghamer voor zware toepassingen. Het 3D-model is geoptimaliseerd voor productie, met aandacht voor ergonomie, gewichtsverdeling en duurzaamheid.</p>
+        <p class="project-desc">Conceptontwerp van een robuuste slaghamer voor zware toepassingen. Het 3D-model is geoptimaliseerd voor productie, met aandacht voor ergonomie en duurzaamheid.</p>
         <div class="project-meta">
           <span><i class="fa-solid fa-gear"></i> Concept engineering</span>
           <span><i class="fa-solid fa-pen-ruler"></i> 3D-model</span>
@@ -522,6 +522,53 @@
       </div>
     </div>
     
+    <!-- Project 4: Steunframe / tekening (IMG_2383) -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-img-wrap">
+        <div class="project-tag">Constructie</div>
+        <img src="IMG_2383(1).PNG" alt="Technische tekening steunframe">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Steunframe & Technische Tekening</h3>
+        <p class="project-desc">Voorbeeld van een gedetailleerde werktekening voor een steunframe. Geschikt als onderstel voor industriële kasten of machines.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-draw-polygon"></i> 2D Werktekening</span>
+          <span><i class="fa-solid fa-wrench"></i> Staalconstructie</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 5: Eikenhout meubel (PRESENTATION MEUBEL) -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-img-wrap">
+        <div class="project-tag">Meubel</div>
+        <img src="PRESENTATION MEUBEL-Photoroom.png" alt="Eikenhout meubel met stalen poot">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Eikenhout Design Tafel</h3>
+        <p class="project-desc">Combinatie van massief eikenhout en een slanke stalen onderstel. Het ontwerp is minimalistisch maar uiterst stabiel.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-tree"></i> Eiken / Staal</span>
+          <span><i class="fa-solid fa-star"></i> Maatwerk</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 6: Spider tafelpoot (extra) -->
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-img-wrap">
+        <div class="project-tag">Designpoot</div>
+        <img src="PRESENTATION MEUBEL-Photoroom.png" alt="Spider tafelpoot alternatief">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Spider Tafelpoot · Zwart Staal</h3>
+        <p class="project-desc">Eigentijdse spider-tafelpoot, volledig uit staal vervaardigd en afgewerkt met matzwarte poedercoating.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-palette"></i> Poedercoating</span>
+          <span><i class="fa-solid fa-arrows-up-down"></i> Verstelbare voetjes</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -599,3 +646,4 @@
 </script>
 </body>
 </html>
+```

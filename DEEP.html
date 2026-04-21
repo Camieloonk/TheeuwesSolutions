@@ -112,6 +112,7 @@
     }
     .nav-links a:hover{color:var(--green-700)}
     .nav-links a:hover::after{transform:scaleX(1)}
+    /* Actieve link (projecten) */
     .nav-links a.active-link{
       color:var(--green-700);
       font-weight:600;
@@ -142,128 +143,49 @@
       .menu-toggle{display:none;}
     }
 
-    /* —— HERO MET SLAGHAMER ACHTERGROND (centraal, overlay) —— */
-    .hero-image-section{
-      position:relative;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:100px 5vw 80px;
-      background-image:url('SLAGHAMER FLAGSHIP-1 (1).png');
-      background-size:cover;
-      background-position:center 30%;
-      background-repeat:no-repeat;
-      isolation:isolate;
+    /* —— PAGINA HEADER (Projecten) —— */
+    .page-hero{
+      padding:120px 5vw 60px;
+      background:var(--green-50);
+      border-bottom:1px solid var(--gray-200);
     }
-    .hero-image-section::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:rgba(8, 25, 16, 0.25);
-      backdrop-filter:brightness(0.75);
-      z-index:0;
+    @media (min-width: 768px){
+      .page-hero{padding:140px 5vw 80px;}
     }
-    .hero-content-wrapper{
-      position:relative;
-      z-index:2;
-      max-width:1100px;
+    .page-hero-content{
+      max-width:900px;
       margin:0 auto;
-      color:white;
+      text-align:center;
     }
-    .hero-eyebrow-light{
-      font-size:0.8rem;
-      letter-spacing:0.3em;
-      text-transform:uppercase;
-      color:var(--green-300);
-      font-weight:500;
-      margin-bottom:1.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:0.8rem;
-    }
-    .hero-eyebrow-light::before,
-    .hero-eyebrow-light::after{
-      content:'';
-      width:40px;
-      height:1.5px;
-      background:var(--green-400);
-    }
-    .hero-headline{
-      font-family:var(--font-display);
-      font-size:clamp(3.5rem,12vw,7rem);
-      font-weight:300;
-      line-height:1.05;
-      color:white;
+    .page-eyebrow{
+      font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+      color:var(--green-600);font-weight:600;
       margin-bottom:1rem;
-      text-shadow:0 8px 30px rgba(0,0,0,0.4);
-      letter-spacing:-0.01em;
+      display:flex;align-items:center;justify-content:center;gap:0.5rem;
     }
-    .hero-headline em{
-      font-style:italic;
-      color:var(--green-300);
+    .page-eyebrow::before, .page-eyebrow::after{
+      content:'';width:25px;height:1px;background:var(--green-500);
+    }
+    .page-title{
+      font-family:var(--font-display);
+      font-size:clamp(2.5rem,8vw,5.5rem);
       font-weight:300;
+      line-height:1.15;
+      color:var(--green-900);
+      margin-bottom:1rem;
     }
-    .hero-subheadline{
-      font-size:clamp(1rem,4.5vw,1.5rem);
-      color:rgba(255,255,255,0.85);
-      max-width:750px;
-      margin:0 auto 2.5rem;
+    .page-title em{
+      font-style:italic;color:var(--green-600);
+    }
+    .page-sub{
+      font-size:clamp(0.9rem,4vw,1.2rem);
+      color:var(--gray-600);
+      max-width:650px;
+      margin:0 auto;
       font-weight:300;
-      line-height:1.5;
-      text-shadow:0 2px 10px rgba(0,0,0,0.3);
-    }
-    .hero-cta-group{
-      display:flex;
-      flex-wrap:wrap;
-      gap:1.2rem;
-      justify-content:center;
-    }
-    .btn-primary-light{
-      background:var(--green-500);
-      color:white;
-      padding:0.9rem 2.8rem;
-      border-radius:100px;
-      font-weight:500;
-      font-size:1.1rem;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:0.6rem;
-      transition:background 0.2s, transform 0.2s, box-shadow 0.2s;
-      border:none;
-      cursor:pointer;
-      box-shadow:0 8px 25px rgba(0,0,0,0.2);
-    }
-    .btn-primary-light i{font-size:1rem;}
-    .btn-primary-light:hover{
-      background:var(--green-400);
-      transform:translateY(-3px);
-      box-shadow:0 18px 35px rgba(56,142,60,0.6);
-    }
-    .btn-outline-light{
-      background:transparent;
-      border:1.8px solid rgba(255,255,255,0.55);
-      color:white;
-      padding:0.9rem 2.5rem;
-      border-radius:100px;
-      font-weight:400;
-      font-size:1.1rem;
-      text-decoration:none;
-      transition:border-color 0.2s, background 0.2s, transform 0.2s;
-      display:inline-flex;
-      align-items:center;
-      gap:0.5rem;
-    }
-    .btn-outline-light:hover{
-      border-color:white;
-      background:rgba(255,255,255,0.08);
-      transform:translateY(-2px);
     }
 
-    /* —— PROJECTEN GRID (opgeschoond) —— */
+    /* —— PROJECTEN GRID (uitgebreid) —— */
     .projects-section{
       padding:60px 5vw;
       background:var(--white);
@@ -271,32 +193,11 @@
     @media (min-width: 768px){
       .projects-section{padding:80px 5vw;}
     }
-    .section-header{
-      max-width:700px;
-      margin:0 auto 3rem;
-      text-align:center;
-    }
-    .section-label{
-      font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
-      color:var(--green-600);font-weight:600;margin-bottom:0.8rem;
-      display:flex;align-items:center;justify-content:center;gap:0.5rem;
-    }
-    .section-label::before, .section-label::after{
-      content:'';width:25px;height:1px;background:var(--green-500);
-    }
-    .section-title{
-      font-family:var(--font-display);
-      font-size:clamp(2rem,5vw,3.8rem);
-      font-weight:400;
-      color:var(--green-900);
-      margin-bottom:0.8rem;
-    }
-    .section-title em{font-style:italic;color:var(--green-600);}
     .projects-grid{
       display:grid;
       grid-template-columns:1fr;
       gap:2rem;
-      max-width:1200px;
+      max-width:1400px;
       margin:0 auto;
     }
     @media (min-width: 640px){
@@ -338,7 +239,9 @@
       object-fit:contain;
       transition:transform 0.4s ease;
     }
-    .project-card:hover .project-img-wrap img{transform:scale(1.02);}
+    .project-card:hover .project-img-wrap img{
+      transform:scale(1.02);
+    }
     .project-tag{
       position:absolute;top:1rem;left:1rem;
       background:var(--green-100);color:var(--green-700);
@@ -346,7 +249,12 @@
       font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
       backdrop-filter:blur(4px);
     }
-    .project-info{padding:1.8rem 1.5rem 2rem;flex:1;}
+    .project-info{
+      padding:1.8rem 1.5rem 2rem;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
     @media (min-width: 768px){
       .project-info{padding:2rem 1.8rem 2.2rem;}
     }
@@ -363,6 +271,7 @@
       color:var(--gray-600);
       line-height:1.7;
       margin-bottom:1.2rem;
+      flex:1;
     }
     .project-meta{
       display:flex;
@@ -374,9 +283,56 @@
       font-size:0.8rem;
       color:var(--gray-500);
     }
-    .project-meta span i{margin-right:0.4rem;color:var(--green-500);width:1.1rem;}
+    .project-meta span i{
+      margin-right:0.4rem;
+      color:var(--green-500);
+      width:1.1rem;
+    }
 
-    /* —— FOOTER —— */
+    /* —— CTA BANNER —— */
+    .cta-banner{
+      background:var(--green-900);
+      padding:60px 5vw;
+      text-align:center;
+      color:white;
+    }
+    .cta-inner{
+      max-width:700px;
+      margin:0 auto;
+    }
+    .cta-title{
+      font-family:var(--font-display);
+      font-size:clamp(1.8rem,5vw,3.2rem);
+      font-weight:300;
+      margin-bottom:1rem;
+    }
+    .cta-title em{color:var(--green-400);font-style:italic;}
+    .cta-text{
+      color:rgba(255,255,255,0.7);
+      margin-bottom:2rem;
+      font-size:1rem;
+    }
+    .btn-primary-light{
+      background:var(--green-500);
+      color:var(--white);
+      padding:0.9rem 2.5rem;
+      border-radius:100px;
+      font-weight:500;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:0.5rem;
+      transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
+      border:none;
+      cursor:pointer;
+    }
+    .btn-primary-light:hover{
+      background:var(--green-400);
+      transform:translateY(-3px);
+      box-shadow:0 12px 30px rgba(56,142,60,0.5);
+    }
+
+    /* —— FOOTER (identiek) —— */
     footer{
       background:var(--green-900);color:rgba(255,255,255,0.6);
       padding:3rem 5vw 2rem;
@@ -418,7 +374,7 @@
     }
     .kvk{font-size:0.65rem;color:rgba(255,255,255,0.3);}
 
-    /* —— REVEAL —— */
+    /* —— REVEAL ANIMATIE —— */
     .reveal{
       opacity:0;transform:translateY(30px);
       transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);
@@ -427,11 +383,12 @@
     .reveal-delay-1{transition-delay:0.1s}
     .reveal-delay-2{transition-delay:0.2s}
     .reveal-delay-3{transition-delay:0.3s}
+    .reveal-delay-4{transition-delay:0.4s}
   </style>
 </head>
 <body>
 
-<!-- NAVIGATIE -->
+<!-- NAVIGATIE (met actieve 'Projecten') -->
 <nav id="nav">
   <div style="display:flex; align-items:center; gap:10px;">
     <img src="Theeuwes-Solutions-Favicoon.png" alt="Theeuwes Solutions Logo" style="width: 35px; height: auto;">
@@ -452,26 +409,17 @@
   </ul>
 </nav>
 
-<!-- HERO MET SLAGHAMER -->
-<section class="hero-image-section">
-  <div class="hero-content-wrapper reveal">
-    <p class="hero-eyebrow-light">3D Design & Engineering · Amersfoort</p>
-    <h1 class="hero-headline"><em>Theeuwes</em> Solutions</h1>
-    <p class="hero-subheadline">Maatwerk metaalconstructies en technisch ontwerp – van concept tot gedetailleerde 3D-modellen. Precisie die je ziet.</p>
-    <div class="hero-cta-group">
-      <a href="#projecten-grid" class="btn-primary-light">Bekijk projecten <i class="fa-solid fa-arrow-down"></i></a>
-      <a href="offerte-aanvragen.html" class="btn-outline-light">Offerte aanvragen</a>
-    </div>
+<!-- PAGINA HEADER -->
+<section class="page-hero">
+  <div class="page-hero-content reveal">
+    <p class="page-eyebrow">Realisaties & ontwerpen</p>
+    <h1 class="page-title">Projecten die <em>spreken</em></h1>
+    <p class="page-sub">Een selectie van maatwerk constructies, van meubeldesign tot industriële componenten. Elk project met precisie uitgewerkt in 3D.</p>
   </div>
 </section>
 
-<!-- PROJECTEN GRID (3 unieke projecten, dubbelingen verwijderd) -->
-<section id="projecten-grid" class="projects-section">
-  <div class="section-header reveal">
-    <p class="section-label">Realisaties & ontwerpen</p>
-    <h2 class="section-title">Projecten die <em>spreken</em></h2>
-    <p style="color:var(--gray-600); max-width:600px; margin:0 auto;">Een selectie van maatwerk constructies – van meubeldesign tot industriële componenten.</p>
-  </div>
+<!-- PROJECTEN GRID (uitgebreid) -->
+<section class="projects-section">
   <div class="projects-grid">
     
     <!-- Project 1: Stertafelpoot (FLAG2) -->
@@ -482,7 +430,7 @@
       </div>
       <div class="project-info">
         <h3 class="project-name">Stertafelpoot · Gecoat Staal</h3>
-        <p class="project-desc">Stijlvolle en robuuste stertafelpoot, ontworpen als eyecatcher voor eettafels of vergadertafels. Het ontwerp combineert een organische sterstructuur met hoogwaardig gecoat staal.</p>
+        <p class="project-desc">Stijlvolle en robuuste stertafelpoot, ontworpen als eyecatcher voor eettafels of vergadertafels. Het ontwerp combineert een organische sterstructuur met hoogwaardig gecoat staal. Geschikt voor tafelbladen tot 3 meter.</p>
         <div class="project-meta">
           <span><i class="fa-solid fa-cube"></i> SOLIDWORKS 3D</span>
           <span><i class="fa-solid fa-ruler"></i> Maatwerk</span>
@@ -498,7 +446,7 @@
       </div>
       <div class="project-info">
         <h3 class="project-name">Voetplaat Transportband Splitter</h3>
-        <p class="project-desc">Ontworpen voor Chiorino B.V. als onderdeel van een transportband-splitter. Volledige assembly met bouwboek en technische tekeningen (detailweergave beperkt vanwege geheimhouding).</p>
+        <p class="project-desc">Ontworpen voor Chiorino B.V. als onderdeel van een transportband-splitter. Volledige assembly met bouwboek en technische tekeningen. Vanwege geheimhouding is detailweergave beperkt, maar de voetplaat toont de precisie.</p>
         <div class="project-meta">
           <span><i class="fa-solid fa-building"></i> Chiorino B.V.</span>
           <span><i class="fa-solid fa-lock"></i> NDA-project</span>
@@ -506,7 +454,7 @@
       </div>
     </div>
     
-    <!-- Project 3: Industriële Slaghamer (FLAG) -->
+    <!-- Project 3: Slaghamer (FLAG) -->
     <div class="project-card reveal reveal-delay-3">
       <div class="project-img-wrap">
         <div class="project-tag">Gereedschap</div>
@@ -514,7 +462,7 @@
       </div>
       <div class="project-info">
         <h3 class="project-name">Industriële Slaghamer</h3>
-        <p class="project-desc">Conceptontwerp van een robuuste slaghamer voor zware toepassingen. Het 3D-model is geoptimaliseerd voor productie, met aandacht voor ergonomie, gewichtsverdeling en duurzaamheid.</p>
+        <p class="project-desc">Conceptontwerp van een robuuste slaghamer voor zware toepassingen. Het 3D-model is geoptimaliseerd voor productie, met aandacht voor ergonomie, gewichtsverdeling en duurzaamheid. Inclusief technische documentatie.</p>
         <div class="project-meta">
           <span><i class="fa-solid fa-gear"></i> Concept engineering</span>
           <span><i class="fa-solid fa-pen-ruler"></i> 3D-model</span>
@@ -522,6 +470,63 @@
       </div>
     </div>
     
+    <!-- Project 4: Voorbeeld tekening / Steunframe (IMG_2383) -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-img-wrap">
+        <div class="project-tag">Constructie</div>
+        <img src="IMG_2383(1).PNG" alt="Technische tekening steunframe">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Steunframe & Technische Tekening</h3>
+        <p class="project-desc">Voorbeeld van een gedetailleerde werktekening voor een steunframe. Geschikt als onderstel voor industriële kasten of machines. Alle maten, lassen en materiaalspecificaties zijn opgenomen.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-draw-polygon"></i> 2D Werktekening</span>
+          <span><i class="fa-solid fa-wrench"></i> Staalconstructie</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 5: Eikenhout meubel design (PRESENTATION MEUBEL) -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-img-wrap">
+        <div class="project-tag">Meubel</div>
+        <img src="PRESENTATION MEUBEL-Photoroom.png" alt="Eikenhout meubel met stalen poot">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Eikenhout Design Tafel</h3>
+        <p class="project-desc">Combinatie van massief eikenhout en een slanke stalen onderstel. Het ontwerp is minimalistisch maar uiterst stabiel. Geproduceerd als uniek meubelstuk voor een particuliere opdrachtgever.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-tree"></i> Eiken / Staal</span>
+          <span><i class="fa-solid fa-star"></i> Maatwerk</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 6: Extra – kan ook een placeholder zijn, maar we voegen een realistisch project toe (eventueel herhaling van tafelpoot variant?) 
+         We kunnen de "Spider tafelpoot" als extra project toevoegen, die stond in de index. -->
+    <div class="project-card reveal reveal-delay-3">
+      <div class="project-img-wrap">
+        <div class="project-tag">Designpoot</div>
+        <img src="PRESENTATION MEUBEL-Photoroom.png" alt="Spider tafelpoot alternatief">
+      </div>
+      <div class="project-info">
+        <h3 class="project-name">Spider Tafelpoot · Zwart Staal</h3>
+        <p class="project-desc">Eigentijdse spider-tafelpoot, ontworpen voor grote tafelbladen. De poot is volledig uit staal vervaardigd en afgewerkt met een matzwarte poedercoating. Past perfect in zowel industriële als moderne interieurs.</p>
+        <div class="project-meta">
+          <span><i class="fa-solid fa-palette"></i> Poedercoating</span>
+          <span><i class="fa-solid fa-arrows-up-down"></i> Verstelbare voetjes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER (naar offerte) -->
+<section class="cta-banner reveal">
+  <div class="cta-inner">
+    <h2 class="cta-title">Zelf een <em>project</em> in gedachten?</h2>
+    <p class="cta-text">Van eerste schets tot technisch productiedossier – ik denk graag met je mee.</p>
+    <a href="offerte-aanvragen.html" class="btn-primary-light">Vraag een vrijblijvende offerte aan →</a>
   </div>
 </section>
 
@@ -558,7 +563,7 @@
 </footer>
 
 <script>
-  // Menu toggle
+  // ------ MENU TOGGLE (zelfde als hoofdsite) ------
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   if(menuToggle && navLinks){
@@ -569,6 +574,7 @@
       if(icon) icon.classList.toggle('fa-times');
     });
   }
+  // Sluit menu bij klik op link
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('show');
@@ -580,7 +586,7 @@
     });
   });
 
-  // Reveal on scroll
+  // ------ REVEAL ON SCROLL ------
   const reveals = document.querySelectorAll('.reveal');
   function checkReveal(){
     for(let el of reveals){
@@ -590,6 +596,7 @@
       if(rect.top < windowHeight - revealPoint){
         el.classList.add('visible');
       } else {
+        // optioneel: niet verwijderen als hij al zichtbaar is
         if(!el.classList.contains('visible')) el.classList.remove('visible');
       }
     }
@@ -597,5 +604,6 @@
   window.addEventListener('scroll', checkReveal);
   window.addEventListener('load', checkReveal);
 </script>
+
 </body>
 </html>
